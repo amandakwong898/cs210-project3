@@ -1,0 +1,79 @@
+1. Enter the number of hours it took you to complete the project between
+   the <<< and >>> signs below (eg, <<<10>>>).
+
+   <<<15>>>
+   
+2. Enter the difficulty level (1: very easy; 5: very difficult) of the project
+   between the <<< and >>> signs below (eg, <<<3>>>).
+
+   <<<3>>>
+
+3. Provide a short description of how you approached each problem, issues you 
+   encountered, and how you resolved those issues.
+
+   Problem 1 (Autocomplete Term): To begin, I threw error exceptions if the
+   arguments were null or 0 inside the constructors, as well as initialize
+   the instance variables weight and query. For compareTo, I used the
+   compareTo method from the String class to compare this and that query.
+   I returned a new ReverseWeightOrder comparator. Inside that helper class,
+   I used the compare method from the Long class to compare the weights of
+   Terms v and w. Inside the byPrefixOrder comparator class, I threw an
+   exception if the argument is negative, and then returned a new Prefix-
+   Order object. In the helper prefix-order comparator class, I had trouble
+   with the compare method, in which we had to compare the substrings of
+   Terms v and w. I knew we had to use the substring method and the min
+   method from the Integer class, but I wasn't sure how to translate that
+   into code concisely until speaking with the SI (thank you!). For the
+   toString method, I simply returned weight and query separated by a tab.
+
+   Problem 2 (Binary Search Deluxe): For both the firstIndexOf and last-
+   IndexOf methods, I threw a NullPointerException at the beginning if
+   any of the arguments were null. I also referred to the Binary Search
+   code from the lecture slides (Analysis of Algorithms), and altered it.
+   I initialized an variable index and set it to -1, and had lo and hi
+   set as the first and last indices of the array a. While lo was less than
+   hi, I set a variable mid using the formula lo + (hi - lo) / 2. I used
+   the compare method to compare the search key with the element in the
+   middle index - if it was negative, I set hi to the middle element - 1;
+   if the key was positive, I set lo to the middle element + 1. Else, I
+   set index equal to mid, with hi equal to mid - 1 in the firstIndexOf
+   method and lo equal to mid + 1 in the lastIndexOf method. I returned
+   index outside the while loop.
+
+   Problem 3 (Autocomplete): I started off by throwing NullPointerExceptions
+   to the constructor and methods if the arguments were null. In the
+   constructor, I initialized this.terms as a defensive copy of terms. At first
+   I wasn't sure how to do it, but I figured it out by looking up what a
+   defensive copy was. I iterated through the terms array, and set the elements
+   of this.terms equal to them. I sorted this.terms lexicographically by
+   calling the Arrays.sort method. In the allMatches method, I called the
+   firstIndexOf method from BinarySearchDeluxe and set it to a variable i.
+   I called numberOfMatches and set it to a number n. I was not sure how to
+   go about this at first, but I asked the instructors on Piazza for a hint
+   on how to start. After, I constructed an array called matches containing
+   n elements from terms and starting at i. I called the sort method to sort
+   matched in reverse weight order and returned matches. In the numberOf-
+   Matches method, I called the methods firstIndexOf and lastIndexOf in
+   order to obtain their respective occurrence of String prefix. If any
+   of the indices equaled -1, I just returned 0. Lastly, I returned the
+   last index - first index, and added 1.
+   
+4. Did you receive help from anyone? List their names, status (classmate, 
+   CS210 grad, TA, other), and the nature of help received.
+
+   Name               Status       Help Received
+   ----               ------       -------------
+
+   Suncharn Pipithkul  SI  Assisted with compare method in Problem 1 and
+                           explaining logically Problem 2
+   James Michaud       TA  Helped understand exercises and problems during
+                           discussion sessions
+   Swami Iyer  Instructor  Helped me figure out how to start one part of
+                           Problem 3
+
+5. List any other comments here. Feel free to provide any feedback on how
+   much you learned from doing the assignment, and whether you enjoyed
+   doing it.
+
+   I enjoyed doing this project! It was nice to see everything coming
+   together at the end.
